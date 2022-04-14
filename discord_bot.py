@@ -93,5 +93,4 @@ async def token_id_metadata(ctx, address: Option(str, 'Enter the NFT contract ad
   await ctx.respond(embed=embed)
 
 
-#bot.run(discord_token)
-#test 4
+bot.run(discord_token)
