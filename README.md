@@ -1,19 +1,19 @@
 # NFT-Hackathon
 **Vision:**
-- 
-- Crypto Analytics Bot enables anyone to easily access their wallet data and get details about their NFT. Our vision is to enable everyone to get access to free Crypto analytics right from Discord and Telegram.
 
-- **Description:**
-- 
+Crypto Analytics Bot enables anyone to easily access their wallet data and get details about their NFT. Our vision is to enable everyone to get access to free Crypto analytics right from Discord and Telegram.
+
+**Description:**
+
 - • What if you had the chance to buy/sell/send NFTs to anyone instantly by just mentioning them in Discord and Telegram?
 - • What if you can get multiple roles just by verifying you are a holder?
 - • What if you can get access to data analytics tools for your wallet right in Discord and Telegram?
 - • What if you can check the prices of any token instantly?
 
-- We have a solution for you. We have made a Discord and a Telegram bot that is capable to fetch on-chain data and show it directly to users in Discord and Telegram. We have a good set of tools for Data Analytics right now and will continue to improve it as we move ahead. 
+We have a solution for you. We have made a Discord and a Telegram bot that is capable to fetch on-chain data and show it directly to users in Discord and Telegram. We have a good set of tools for Data Analytics right now and will continue to improve it as we move ahead. 
 **- Then we are planning to integrate buy/sell NFTs directly from Discord and Telegram.**
 
-- Commands available right now:
+Commands available right now:
 
 **Discord:**
 
@@ -62,7 +62,7 @@
 
 
 **APIs Used:**
-- 
+
 - Etherscan API
 - Moralis API
 
