@@ -128,13 +128,10 @@ def get_results(json_response: List[Dict[str, str]]) -> List[Transaction]:
   results = json_response.get("result")
 
   # Check if the result is None
-  if results is None:
+  if results is not None:
 
-    # Exits the function
-    return
-
-  # Change the list of dictionaries into a list of transaction objects and returns the list
-  return [Transaction(**result) for result in results]
+    # Change the list of dictionaries into a list of transaction objects and returns the list
+    return [Transaction(**result) for result in results]
 
 
 def get_normal_transactions(address: str, number_of_results: Optional[int] = 100) -> List[Transaction]:

@@ -62,7 +62,7 @@ def get_timezone_from_db(chat_id: Union[str, int]) -> pytz.timezone:
   return pytz.timezone("UTC")
 
 
-def create_timezone_keyboard(timezone_list: List[str]) -> ReplyKeyboardMarkup:
+def create_timezone_keyboard(timezone_list: [pytz.all_timezones, pytz.common_timezones]) -> ReplyKeyboardMarkup:
   """Function to create the reply keyboard for timezones"""
 
   # Create the reply keyboard
@@ -371,7 +371,7 @@ def get_transactions_handler(message: Message) -> None:
       number_of_results = int(second_word) if second_word.isdigit() else 100
 
       # Calls the API to get the list of transactions
-      transactions = etherscan_api.get_normal_transactions(msg, number_of_results)
+      transactions = etherscan_api.get_normal_transactions(msg_list[0], number_of_results)
 
     # Gets the timezone
     timezone = get_timezone_from_db(message.chat.id)
@@ -529,8 +529,9 @@ def split_message(chat_id: Union[str, int], bot_msg: str) -> None:
     # Change the end index to 4097 characters above the start index
     end_index = start_index + 4097
 
-  # Sends the final slice of the message
-  bot.send_message(chat_id, bot_msg[start_index:])
+  # Sends the final slice of the message if it's not empty
+  if len(bot_msg[start_index:]) != 0:
+    bot.send_message(chat_id, bot_msg[start_index:])
     
 
 

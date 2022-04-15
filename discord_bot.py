@@ -19,7 +19,7 @@ def hex_to_dec(hex_string):
   return int(hex_string, 16)
 
 # Slash command for ETH Balance
-@bot.slash_command(name="ethbalance", guild_ids=test_guild_id)
+@bot.slash_command(name="ethbalance")
 async def ethbalance(ctx, address: Option(str, 'Enter your ETH address', required = True)):
   """GET ETH BALANCE"""
 
@@ -31,7 +31,7 @@ async def ethbalance(ctx, address: Option(str, 'Enter your ETH address', require
   await ctx.respond(embed=embed)
 
 # Slash command for ETH to USD and USD to ETH with OptionChoice
-@bot.slash_command(name="convert", guild_ids=test_guild_id)
+@bot.slash_command(name="convert")
 async def convert(ctx, amount: Option(str, 'Enter the amount to convert', required = True), choice: Option(str, 'Enter the conversion type', required = True, choices = [OptionChoice(name="ETH to USD", value="eth_to_usd"), OptionChoice(name="USD to ETH", value="usd_to_eth")])):
   
   """CONVERT ETH TO USD OR USD TO ETH"""
@@ -52,7 +52,7 @@ async def convert(ctx, amount: Option(str, 'Enter the amount to convert', requir
     await ctx.respond("Please enter a valid choice")
 
 # Slash command for get transaction details
-@bot.slash_command(name="gettxdetails", guild_ids=test_guild_id)
+@bot.slash_command(name="gettxdetails")
 async def gettxdetails(ctx, txhash: Option(str, 'Enter your transaction hash', required = True)):
   """GET TRANSACTION DETAILS"""
   data = etherscan_api.get_transaction_receipt(txhash)
@@ -67,7 +67,7 @@ async def gettxdetails(ctx, txhash: Option(str, 'Enter your transaction hash', r
   await ctx.respond(embed=embed)
 
 # Implement moralis_api
-@bot.slash_command(name="get_nft_owners", guild_ids=test_guild_id)
+@bot.slash_command(name="get_nft_owners")
 async def get_nft_owners(ctx, address: Option(str, 'Enter the NFT contract address', required = True), token_id: Option(str, 'Enter NFT token id', required = True)):
   """GET NFT OWNERS"""
   data = etherscan_api.get_nft_owners(address, token_id)
@@ -79,7 +79,7 @@ async def get_nft_owners(ctx, address: Option(str, 'Enter the NFT contract addre
   embed.set_footer(text="Data fetched from Moralis.io")
   await ctx.respond(embed=embed)
 
-@bot.slash_command(name="token_id_metadata", guild_ids=test_guild_id)
+@bot.slash_command(name="token_id_metadata")
 async def token_id_metadata(ctx, address: Option(str, 'Enter the NFT contract address', required = True), token_id: Option(str, 'Enter NFT token id', required = True)):
   """GET NFT METADATA"""
   data = etherscan_api.get_nft_metadata(address, token_id)
@@ -92,5 +92,5 @@ async def token_id_metadata(ctx, address: Option(str, 'Enter the NFT contract ad
   embed.set_footer(text="Data fetched from Moralis.io")
   await ctx.respond(embed=embed)
 
-
-bot.run(discord_token)
+if __name__ == "__main__":
+  bot.run(discord_token)
