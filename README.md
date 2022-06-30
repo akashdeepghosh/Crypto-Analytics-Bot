@@ -1,4 +1,6 @@
 # NFT-Hackathon
+
+![Crypto Analytics Bot](https://i.imgur.com/2CzbS2q.png)
 **Vision:**
 
 Crypto Analytics Bot enables anyone to easily access their wallet data and get details about their NFT. Our vision is to enable everyone to get access to free Crypto analytics right from Discord and Telegram.
